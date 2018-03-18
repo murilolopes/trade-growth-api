@@ -6,21 +6,21 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  encoding: utf8
+  database: d4tojce7oa7ger
+  pool: 5
+  host: 'ec2-54-243-129-189.compute-1.amazonaws.com'
+  username: 'wkwpbfmnsjxabm'
+  password: 'daa472f7a2ef837d09541461b0d20b15b0237d43dfb7d0b774a4cbbb8346b403'
 
 development:
   <<: *default
-  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
 
 production:
   <<: *default
-  database: db/production.sqlite3

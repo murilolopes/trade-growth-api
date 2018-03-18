@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180303165423) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "goals", force: :cascade do |t|
     t.decimal "investiment"
     t.decimal "percentage_per_trade"
@@ -19,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180303165423) do
     t.decimal "avarage_daily_loss"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 20180303165423) do
     t.boolean "direction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "goal_id"
-    t.integer "user_id"
+    t.bigint "goal_id"
+    t.bigint "user_id"
     t.index ["goal_id"], name: "index_trades_on_goal_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
@@ -65,4 +68,7 @@ ActiveRecord::Schema.define(version: 20180303165423) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "goals", "users"
+  add_foreign_key "trades", "goals"
+  add_foreign_key "trades", "users"
 end
