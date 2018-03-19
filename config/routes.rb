@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
-  #resources :trades
-  #resources :goals
-
-  map.resources :goals do |goal|
-    goal.resources :trades
+  # resources :trades
+  # resources :goals
+  resources :goals do
+   resources :trades
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

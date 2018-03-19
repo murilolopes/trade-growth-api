@@ -24,3 +24,33 @@ test:
 
 production:
   <<: *default
+
+# default: &default
+#   adapter: sqlite3
+
+# development:
+#   adapter: sqlite3
+#   database: db/development.sqlite3
+#   pool: 5
+#   timeout: 5000
+
+# # Warning: The database defined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+# test:
+#   <<: *default
+
+# production:
+#   <<: *default
+
+# default: &default
+#   adapter: postgresql
+#   encoding: utf8
+#   database: <%= ENV.fetch("DB_NAME") %>
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   host: <%= ENV.fetch("DB_HOST") %>
+#   username: <%= ENV.fetch("DB_USER") %>
+#   password: <%= ENV.fetch("DB_PASSWORD") %>
+
+# development:
+#   <<: *default
