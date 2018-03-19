@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_goal, only: :show
 
   # GET /goals
   def index
@@ -15,7 +16,6 @@ class GoalsController < ApplicationController
 
   # POST /goals
   def create
-    ActsAsTenant.current_tenant = User.find(1) 
     @goal = Goal.new(goal_params)
 
     if @goal.save

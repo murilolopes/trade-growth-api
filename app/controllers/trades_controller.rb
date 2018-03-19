@@ -1,9 +1,11 @@
 class TradesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_trade, only: :show
 
   # GET /trades
   def index
-    @trades = Trade.all
+    @goal = Goal.find(params[:goal_id])
+    @trades = @goal.trades
 
     render json: @trades
   end
