@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_goal, only: :show
+  before_action :set_goal, only: [:show, :update]
 
   # GET /goals
   def index
@@ -19,7 +19,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
 
     if @goal.save
-      render json: @goal, status: :created, location: @goal
+      render json: @goal, status: :created
     else
       render json: @goal.errors, status: :unprocessable_entity
     end

@@ -1,6 +1,6 @@
 class TradesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trade, only: :show
+  before_action :set_trade, only: [:show, :update]
 
   # GET /trades
   def index
@@ -20,7 +20,7 @@ class TradesController < ApplicationController
     @trade = Trade.new(trade_params)
 
     if @trade.save
-      render json: @trade, status: :created, location: @trade
+      render json: @trade, status: :created
     else
       render json: @trade.errors, status: :unprocessable_entity
     end
