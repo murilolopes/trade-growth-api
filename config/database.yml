@@ -7,11 +7,11 @@
 default: &default
   adapter: postgresql
   encoding: utf8
-  database: <%= ENV.fetch("DB_NAME") %>
+  database: <%= ENV.fetch("DB_NAME") { 'd4tojce7oa7ger' } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV.fetch("DB_HOST") %>
-  username: <%= ENV.fetch("DB_USER") %>
-  password: <%= ENV.fetch("DB_PASSWORD") %>
+  host: <%= ENV.fetch("DB_HOST") { 'ec2-54-243-129-189.compute-1.amazonaws.com' } %>
+  username: <%= ENV.fetch("DB_USER") { 'wkwpbfmnsjxabm' } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { 'daa472f7a2ef837d09541461b0d20b15b0237d43dfb7d0b774a4cbbb8346b403' } %>
 
 development:
   <<: *default
