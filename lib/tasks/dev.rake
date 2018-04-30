@@ -6,10 +6,6 @@ namespace :dev do
 		email: 'muriloangelo10@gmail.com',
 		password: '123123123'
 	)
-  	User.create!(
-		email: 'muriloangelo11@gmail.com',
-		password: '123123123'
-	)
   
   end
 
